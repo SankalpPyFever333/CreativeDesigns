@@ -3,6 +3,15 @@
   src: url("./significoFont.woff");
 }
 
+:root {
+  --salmon: salmon;
+  --cyan: #569298;
+  --white: #fff;
+  --dsalmon: #291311;
+  --dcyan: #e8e6e3;
+  --black: #000;
+}
+
 body[theme="black"] {
   background-color: #000000;
 }
@@ -10,26 +19,26 @@ body[theme="black"] {
 /* Now, we want that when theme is black , then text color of sections will be white. */
 
 body[theme="black"] .sections {
-  color: #fff;
+  color: var(--white);
 }
 
 body[theme="cyan"] {
-  background-color: #569298;
+  background-color: var(--cyan);
 }
 body[theme="cyan"] .sections {
-  color: #0f1a1b;
+  color: var(--dcyan);
 }
 
 body[theme="salmon"] {
-  background-color: salmon;
+  background-color: var(--salmon);
 }
 body[theme="salmon"] .sections {
-  color: #1f0d0c;
+  color: var(--dsalmon);
 }
 
 body[theme="white"] {
-  background-color: #fff;
+  background-color: var(--white);
 }
 body[theme="white"] .sections {
-  color: #000000;
+  color: var(--black);
 }
