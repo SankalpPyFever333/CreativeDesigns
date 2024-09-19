@@ -1,0 +1,35 @@
+@font-face {
+  font-family: signi;
+  src: url("./significoFont.woff");
+}
+
+body[theme="black"] {
+  background-color: #000000;
+}
+
+/* Now, we want that when theme is black , then text color of sections will be white. */
+
+body[theme="black"] .sections {
+  color: #fff;
+}
+
+body[theme="cyan"] {
+  background-color: #569298;
+}
+body[theme="cyan"] .sections {
+  color: #0f1a1b;
+}
+
+body[theme="salmon"] {
+  background-color: salmon;
+}
+body[theme="salmon"] .sections {
+  color: #1f0d0c;
+}
+
+body[theme="white"] {
+  background-color: #fff;
+}
+body[theme="white"] .sections {
+  color: #000000;
+}
