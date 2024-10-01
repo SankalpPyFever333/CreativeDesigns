@@ -42,3 +42,8 @@ body[theme="white"] {
 body[theme="white"] .sections {
   color: var(--black);
 }
+
+.vdodiv {
+  /* clip is a variable defined in the style of vdodiv class element. */
+  clip-path: circle(var(--clip) at 50% 50%);
+}
