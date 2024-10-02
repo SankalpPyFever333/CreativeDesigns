@@ -52,6 +52,7 @@ function realClassAnimation() {
       end: "bottom top",
       // markers: true,
       scrub: 2,
+      // pin: true,
     },
     xPercent: -200,
     ease: Power4,
@@ -119,19 +120,34 @@ function paraAnimation() {
 function capsuleAnimation() {
   gsap.to(".capsule:nth-child(2)", {
     scrollTrigger: {
-      markers: true,
+      // markers: true,
       trigger: ".capsules",
       start: "top 70%",
       end: "bottom bottom",
       scrub: 3,
     },
     y: 0,
-    ease: Power4
+    ease: Power4,
   });
 }
 
-
-
+// changing the bg color:
+document.querySelectorAll(".sections").forEach((eachSection) => {
+  // creating scrolltrigger:
+  ScrollTrigger.create({
+    trigger: eachSection,
+    markers: true,
+    start: "top 50%",
+    end: "bottom 50%",
+    onEnter: function () {
+      // we set the value of theme attribute of the body
+      document.body.setAttribute("theme", eachSection.dataset.color);
+    },
+    onEnterBack: function () {
+      document.body.setAttribute("theme", eachSection.dataset.color);
+    },
+  });
+});
 
 capsuleAnimation();
 locoAnimation();

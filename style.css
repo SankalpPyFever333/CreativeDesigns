@@ -12,6 +12,10 @@
   --black: #000;
 }
 
+body{
+  transition: background-color ease-out .5s;
+}
+
 body[theme="black"] {
   background-color: #000000;
 }
