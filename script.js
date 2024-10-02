@@ -58,5 +58,29 @@ function realClassAnimation() {
   });
 }
 
+function teamAnimation() {
+  document.querySelectorAll(".listelem").forEach((el) => {
+    el.addEventListener("mousemove", (dets) => {
+      gsap.to(el.querySelector(".picture"), {
+        opacity: 1,
+        duration: 0.5,
+        ease: Power4,
+        // for moving this picture with mouse for a certain range , we use mapRange util.
+        x: gsap.utils.mapRange(0, window.innerWidth, -200, 200, dets.clientX),
+      });
+    });
+
+    el.addEventListener("mouseleave", (dets) => {
+      gsap.to(el.querySelector(".picture"), {
+        opacity: 0,
+        duration: 0.5,
+        ease: Power4,
+      });
+    });
+  });
+}
+
 homepageAnimation();
 realClassAnimation();
+teamAnimation();
+
