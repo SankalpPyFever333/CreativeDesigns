@@ -10,7 +10,7 @@ function homepageAnimation() {
       end: "bottom bottom",
       scrub: 4,
       // pin: true,
-      markers: true,
+      // markers: true,
     },
   });
 
@@ -50,7 +50,7 @@ function realClassAnimation() {
       trigger: ".real",
       start: "top top",
       end: "bottom top",
-      markers: true,
+      // markers: true,
       scrub: 2,
     },
     xPercent: -200,
@@ -80,7 +80,36 @@ function teamAnimation() {
   });
 }
 
+// console.log(document.querySelector(".textParagraph").textContent.split(""));
+
+let clutteredText = "";
+
+document
+  .querySelector(".textParagraph")
+  .textContent.split("")
+  .forEach((eachChar) => {
+    if (eachChar === " ") {
+      clutteredText += `<span class= opacity-10 >&nbsp;</span>`;
+      // span tag does not able to hold space , so we have to do it like this.
+    }
+    clutteredText += `<span class = opacity-10 >${eachChar}</span>`;
+  }); 
+
+document.querySelector(".textParagraph").innerHTML = clutteredText;
+
+gsap.to(".textParagraph span", {
+  scrollTrigger: {
+    trigger: ".para",
+    // markers: true,
+    start: "top 50%",
+    end: "bottom 80%",
+    scrub: 2,
+  },
+  opacity: 1,
+  ease: Power4,
+  stagger: 0.03,
+});
+
 homepageAnimation();
 realClassAnimation();
 teamAnimation();
-
