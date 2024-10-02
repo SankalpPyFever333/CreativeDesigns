@@ -80,36 +80,62 @@ function teamAnimation() {
   });
 }
 
-// console.log(document.querySelector(".textParagraph").textContent.split(""));
+function locoAnimation() {
+  (function () {
+    const locomotiveScroll = new LocomotiveScroll();
+  })();
+}
 
-let clutteredText = "";
+function paraAnimation() {
+  let clutteredText = "";
 
-document
-  .querySelector(".textParagraph")
-  .textContent.split("")
-  .forEach((eachChar) => {
-    if (eachChar === " ") {
-      clutteredText += `<span class= opacity-10 >&nbsp;</span>`;
-      // span tag does not able to hold space , so we have to do it like this.
-    }
-    clutteredText += `<span class = opacity-10 >${eachChar}</span>`;
-  }); 
+  document
+    .querySelector(".textParagraph")
+    .textContent.split("")
+    .forEach((eachChar) => {
+      if (eachChar === " ") {
+        clutteredText += `<span class= opacity-10 >&nbsp;</span>`;
+        // span tag does not able to hold space , so we have to do it like this.
+      }
+      clutteredText += `<span class = opacity-10 >${eachChar}</span>`;
+    });
 
-document.querySelector(".textParagraph").innerHTML = clutteredText;
+  document.querySelector(".textParagraph").innerHTML = clutteredText;
 
-gsap.to(".textParagraph span", {
-  scrollTrigger: {
-    trigger: ".para",
-    // markers: true,
-    start: "top 50%",
-    end: "bottom 80%",
-    scrub: 2,
-  },
-  opacity: 1,
-  ease: Power4,
-  stagger: 0.03,
-});
+  gsap.to(".textParagraph span", {
+    scrollTrigger: {
+      trigger: ".para",
+      // markers: true,
+      start: "top 50%",
+      end: "bottom 80%",
+      scrub: 2,
+    },
+    opacity: 1,
+    ease: Power4,
+    stagger: 0.03,
+  });
+}
 
+function capsuleAnimation() {
+  gsap.to(".capsule:nth-child(2)", {
+    scrollTrigger: {
+      markers: true,
+      trigger: ".capsules",
+      start: "top 70%",
+      end: "bottom bottom",
+      scrub: 3,
+    },
+    y: 0,
+    ease: Power4
+  });
+}
+
+
+
+
+capsuleAnimation();
+locoAnimation();
+paraAnimation();
 homepageAnimation();
 realClassAnimation();
 teamAnimation();
